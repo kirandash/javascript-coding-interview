@@ -1,5 +1,9 @@
 # JS Coding Interview
 
+- Source: https://monsterlessons-academy.com/courses
+- https://www.youtube.com/channel/UCssWuTdNCWN4RSF3wHzzjMw
+-
+
 ## 01 Core JS Concepts
 
 ### 01.03 Mapping users to get usernames
@@ -118,7 +122,7 @@
 
 - uses import
 
-### 01.22 Common JS
+### 01.22 Common JS [Advanced]
 
 - uses require
 - **Difference b/w modules and common JS**:
@@ -128,7 +132,7 @@
   - common JS is static which means it can be wrapped around if conditions etc
   - While modules can not be put in an if condition
 
-### 01.23 Debounce Fn
+### 01.23 Debounce Fn [Advanced]
 
 - Debounce invokes `fn()` once `time` has elapsed. The timer is reset if any debounce calls take place before time has elapsed.
 - So if a fn is called multiple times, all prev call will be cancelled and only the last one will be executed after delay
@@ -138,7 +142,7 @@
 - `fn.apply(this, args)`
 - `const processChange = debounce(saveInput, 3000);`
 
-### 01.24 Throttle Fn
+### 01.24 Throttle Fn [Advanced]
 
 - A throttle fn limits the number of `fn()` executions until `time` has elapsed.
 - So if a fn is called multiple times, only the first one is execute and all other calls are cancelled
@@ -146,14 +150,62 @@
 ## 02 Working with DOM
 
 ### 02.01 Highlight All Words in paragraph Over 8 Chars With Yellow
+
 - `querySelector`, `split`, `map` & `join`
 - For multiple paragraphs: use `querySelectorAll` and `[...$paragraph]`
 
 ### 02.02 Add link
+
 - `document.createElement("a")`
 - `document.body.appendChild(link)`
 
 ### 02.03 Split Each Sentence to a Separate Line
+
 - regexp: `split(/\.[^.|<]/)`: all dots but not dot followed by another dot
 - Edge case: "Aaah....This is a consular ship." Doesn't work if dot is followed by a char
 - website: https://regexr.com/
+
+### 02.04 Event Delegation
+
+- `$element = document.querySelector(".todo-app")`
+- `if(e.target && e.target.classList.contains("item")) {}`
+- Note: create only one event listener for the parent item ".todo-app" instead of one for each item in list
+
+## 03 Asynchronous JS
+
+### 03.01 XMLHttpRequest
+
+- `const xhr = new XMLHttpRequest()`
+- `xhr.open(method, url)`
+- `xhr.send()`
+- `xhr.onload`
+- `xhr.onerror = ()`
+- Not used anymore. Used to be the standard 10-15 years ago
+- https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
+
+### 03.02 Fetch API
+
+- returns a promise, so we can use `.then()` method. We can easily combine it with other promises
+- by default the method is "GET"
+- https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+### 03.03 Basic Callback
+
+- Create with setTimeout
+- Pass cb fn as param and execute it after the async task is done
+
+### 03.04 Parallel async array [Advanced]
+
+- store cb values in resultArr
+- if resultCount > asyncFuncs.length then call the final callback
+
+### 03.05 Convert CB to Promise [Advanced]
+
+- ```
+  const promisifyAsyncFn = (asyncFn) => {
+    return new Promise((resolve) => {
+      asyncFn((data) => {
+        resolve(data);
+      })
+    })
+  }
