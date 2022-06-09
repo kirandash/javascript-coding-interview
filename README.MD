@@ -225,3 +225,14 @@
 - API Request manager 
 - Note: Add then and catch methods for the recursive fetch manager to bubble the error
 - TODO: Add exponential time increase with the recursive fn
+
+## 04 Comparison Functions
+- Native, Shallow and Deep
+### 04.01 Shallow Comparison
+- In JS, using native comparision: comparing objs or arrays will return false since they are not compared by value but by instance
+- To compare them by value: we can use shallow or deep comparison
+- Shallow comparison can check only up to one level. Deep comp is for nested objs or arrays
+- Shallow comp is more performant than deep comparison
+- Handle shallow comparison for primitive, array, object, date data types
+- Create a utility fn `typeOf` with more accurate types
+  - Based on each type check length and content match or not
