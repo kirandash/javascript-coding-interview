@@ -209,3 +209,19 @@
       })
     })
   }
+
+### 03.06 Map Data in Promises [Advanced]
+- `Promise.all([]).then([])`
+- Use pure functions for mapping users
+- Do separate .then() calls - one for getting the result and one for working with the result
+- Note: Don't use the naive sol of creating nested promises
+
+### 03.07 Map data with async await
+- `const getMappedUsers = async () => { const users = await getUsers(); }`
+- Much easier to read compared to promise.all
+- put await statements in try catch block to catch error
+
+### 03.08 Design Request Manager
+- API Request manager 
+- Note: Add then and catch methods for the recursive fetch manager to bubble the error
+- TODO: Add exponential time increase with the recursive fn
