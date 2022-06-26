@@ -28,7 +28,7 @@
 - closure is a private fn which returns a fn or an object of fn that can be accessed from outside scope
 - Widely used in JS
 
-### 01.07 Currying
+### 01.07 Currying [Hard]
 
 - `const multiply = a => b => a * b;`
 - What can your curried function do?
@@ -122,7 +122,7 @@
 
 - uses import
 
-### 01.22 Common JS [Advanced]
+### 01.22 Common JS [Hard]
 
 - uses require
 - **Difference b/w modules and common JS**:
@@ -132,7 +132,7 @@
   - common JS is static which means it can be wrapped around if conditions etc
   - While modules can not be put in an if condition
 
-### 01.23 Debounce Fn [Advanced]
+### 01.23 Debounce Fn [Hard]
 
 - Debounce invokes `fn()` once `time` has elapsed. The timer is reset if any debounce calls take place before time has elapsed.
 - So if a fn is called multiple times, all prev call will be cancelled and only the last one will be executed after delay
@@ -142,7 +142,7 @@
 - `fn.apply(this, args)`
 - `const processChange = debounce(saveInput, 3000);`
 
-### 01.24 Throttle Fn [Advanced]
+### 01.24 Throttle Fn [Hard]
 
 - A throttle fn limits the number of `fn()` executions until `time` has elapsed.
 - So if a fn is called multiple times, only the first one is execute and all other calls are cancelled
@@ -194,12 +194,12 @@
 - Create with setTimeout
 - Pass cb fn as param and execute it after the async task is done
 
-### 03.04 Parallel async array [Advanced]
+### 03.04 Parallel async array [Hard]
 
 - store cb values in resultArr
 - if resultCount > asyncFuncs.length then call the final callback
 
-### 03.05 Convert CB to Promise [Advanced]
+### 03.05 Convert CB to Promise [Hard]
 
 - ```
   const promisifyAsyncFn = (asyncFn) => {
@@ -211,7 +211,7 @@
   }
   ```
 
-### 03.06 Map Data in Promises [Advanced]
+### 03.06 Map Data in Promises [Hard]
 
 - `Promise.all([]).then([])`
 - Use pure functions for mapping users
@@ -224,7 +224,7 @@
 - Much easier to read compared to promise.all
 - put await statements in try catch block to catch error
 
-### 03.08 Design Request Manager
+### 03.08 Design Request Manager [Hard]
 
 - API Request manager
 - Note: Add then and catch methods for the recursive fetch manager to bubble the error
@@ -234,7 +234,7 @@
 
 - Native, Shallow and Deep
 
-### 04.01 Shallow Comparison
+### 04.01 Shallow Comparison [Hard]
 
 - In JS, using native comparision: comparing objs or arrays will return false since they are not compared by value but by instance
 - To compare them by value: we can use shallow or deep comparison
@@ -244,9 +244,22 @@
 - Create a utility fn `typeOf` with more accurate types
   - Based on each type check length and content match or not
 
-### 04.02 Deep Comparison
+### 04.02 Deep Comparison [Hard]
 
 - Same logic as shallow comparison but with RECURSION for nested array or object
 
 ### 04.03 Memoization Function
 - Create memo fn with Cache object and closure fn
+
+## 05 Tasks asked only on Interview
+### 05.01 Fibonacci [Medium]
+- Use RECURSION
+  - `return fibonacci(n - 2) + fibonacci(n - 1);`
+  - base cases: return 0 for n as 0 and return 1 for n < 2
+
+### 05.02 Palindrome [Easy]
+- `const isPalindrome = (str) => str === str.split("").reverse().join("");`
+
+### 05.03 Anagram [Easy]
+- sort both strings and compare if equal
+- Note: filter out empty spaces
