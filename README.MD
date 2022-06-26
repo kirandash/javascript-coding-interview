@@ -209,26 +209,33 @@
       })
     })
   }
+  ```
 
 ### 03.06 Map Data in Promises [Advanced]
+
 - `Promise.all([]).then([])`
 - Use pure functions for mapping users
 - Do separate .then() calls - one for getting the result and one for working with the result
 - Note: Don't use the naive sol of creating nested promises
 
 ### 03.07 Map data with async await
+
 - `const getMappedUsers = async () => { const users = await getUsers(); }`
 - Much easier to read compared to promise.all
 - put await statements in try catch block to catch error
 
 ### 03.08 Design Request Manager
-- API Request manager 
+
+- API Request manager
 - Note: Add then and catch methods for the recursive fetch manager to bubble the error
 - TODO: Add exponential time increase with the recursive fn
 
 ## 04 Comparison Functions
+
 - Native, Shallow and Deep
+
 ### 04.01 Shallow Comparison
+
 - In JS, using native comparision: comparing objs or arrays will return false since they are not compared by value but by instance
 - To compare them by value: we can use shallow or deep comparison
 - Shallow comparison can check only up to one level. Deep comp is for nested objs or arrays
@@ -236,3 +243,10 @@
 - Handle shallow comparison for primitive, array, object, date data types
 - Create a utility fn `typeOf` with more accurate types
   - Based on each type check length and content match or not
+
+### 04.02 Deep Comparison
+
+- Same logic as shallow comparison but with RECURSION for nested array or object
+
+### 04.03 Memoization Function
+- Create memo fn with Cache object and closure fn
