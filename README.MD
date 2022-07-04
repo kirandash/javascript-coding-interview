@@ -249,17 +249,54 @@
 - Same logic as shallow comparison but with RECURSION for nested array or object
 
 ### 04.03 Memoization Function
+
 - Create memo fn with Cache object and closure fn
 
 ## 05 Tasks asked only on Interview
+
 ### 05.01 Fibonacci [Medium]
+
 - Use RECURSION
   - `return fibonacci(n - 2) + fibonacci(n - 1);`
   - base cases: return 0 for n as 0 and return 1 for n < 2
 
 ### 05.02 Palindrome [Easy]
+
 - `const isPalindrome = (str) => str === str.split("").reverse().join("");`
 
 ### 05.03 Anagram [Easy]
+
 - sort both strings and compare if equal
 - Note: filter out empty spaces
+
+## 06 Tasks from Every day work
+
+### 06.01 Convert to Title Case [Easy]
+
+- `str.toLowerCase().split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")`
+- Note: `.slice` is non mutating fn
+
+### 06.02 Convert Time Input to 24h Format [Medium]
+- `split` to get hours and minutes
+- get modifiers by checking `.includes`
+- use `.replace` to remove AM and PM
+- `padStart` to add leading zeroes
+- `+hours` will convert string to number
+
+### 06.03 Mapping Data [Medium]
+- Note: Run map on the primary key ex: `location_key` in this case
+- Convert data into FE format
+
+### 06.04 Replace Parameters in URL [Easy]
+- Use reduce
+- `values.reduce((acc, val) => acc.replace(`:${val.from}`, val.to), url);`
+
+### 06.05 Validation Messages [Medium]
+- Mapping BE error codes to FE format
+- Use `Object.entries` for converting obj to array format and then can use `.map`
+
+### 06.06 Flat list to Nested List [Hard]
+- 1. Get root elements
+- 2. Check children if they have children
+- 3. If not -> return item with empty children
+- 4. If yes -> go to #2 (Recursion)
